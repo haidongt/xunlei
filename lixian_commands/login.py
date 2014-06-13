@@ -1,5 +1,4 @@
 
-
 from lixian import XunleiClient
 from lixian_commands.util import *
 from lixian_cli_parser import *
@@ -38,5 +37,7 @@ def login(args):
 	else:
 		print 'Testing login without saving session'
 	import lixian_verification_code
-	verification_code_reader = lixian_verification_code.default_verification_code_reader(args)
-	XunleiClient(args.username, args.password, args.cookies, login=True, verification_code_reader=verification_code_reader)
+	args.verification_code_path = "/Users/haidong.tang/Code/xunlei-lixian/a"
+        verification_code_reader = lixian_verification_code.default_verification_code_reader(args)
+	assert verification_code_reader != None
+        XunleiClient(args.username, args.password, args.cookies, login=True, verification_code_reader=verification_code_reader)
